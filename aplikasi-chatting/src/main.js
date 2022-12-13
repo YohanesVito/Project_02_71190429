@@ -1,3 +1,4 @@
+
 import { createApp } from 'vue'
 import { createStore } from 'vuex'
 import App from './App.vue'
@@ -8,7 +9,8 @@ const store = createStore({
         return {
             username: "",
             receiver: "",
-            messages: ""
+            messages: "",
+            response: []
         }
     },
     mutations: {
@@ -21,6 +23,15 @@ const store = createStore({
         },
         addMsg(state,msg){
             state.messages = msg
+        },
+        addResponse(state,response){
+            state.response.push(response)
+        },
+        logout(state){
+            state.username = "",
+            state.receiver = "",
+            state.messages = "",
+            state.response = []
         }
     }
 })

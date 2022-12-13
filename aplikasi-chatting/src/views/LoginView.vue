@@ -1,6 +1,7 @@
 <template>
   <div class="login">
     <input type="text" v-model="username" placeholder="username" />
+    <br>
     <button @click="login()">Masuk</button>
   </div>
 </template>
