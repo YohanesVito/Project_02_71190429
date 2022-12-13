@@ -21,12 +21,6 @@ const store = createStore({
         addReceiver(state,receiver){
             state.receiver = receiver
         },
-        addMsg(state,msg){
-            state.messages = msg
-        },
-        addResponse(state,response){
-            state.response.push(response)
-        },
         logout(state){
             state.username = "",
             state.receiver = "",

@@ -6,22 +6,22 @@
         <img src="../assets/logout.png" />
       </router-link>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
     <div id="kirim-pesan">
       <h2>Kirim Pesan Ke:</h2>
       <input
@@ -35,12 +35,12 @@
   <h2>@{{ receiver }}</h2>
   <input type="text" v-model="msg" placeholder="ketik pesan..." />
   <button @click="kirim()">Kirim</button>
-  <button @click="getPesan()">Refresh</button>
-  <ul>
-    <li v-for="chat in this.response" :key="chat">
-      {{ chat.msg }}
-    </li>
-  </ul>
+  <button @click="enterListener()">Refresh</button>
+    <div id="pesan" v-for="chat in this.response" :key="chat">
+    <p>
+      {{chat.msg}}
+    </p>
+    </div>
 </template>
 
 <script>
@@ -62,7 +62,6 @@ export default {
   methods: {
     kirim() {
       this.$store.commit("addReceiver", this.receiver);
-      this.$store.commit("addMsg", this.msg);
 
       var mSender = this.$store.state.username;
       var mReceiver = this.$store.state.receiver;
@@ -87,7 +86,6 @@ export default {
           doc.data().sender === mSender &&
           doc.data().receiver === mReceiver
         ) {
-          this.$store.commit("addResponse", doc.data());
           this.response.push(doc.data());
         }
       });
@@ -113,10 +111,18 @@ export default {
 #kirim-pesan h2 {
   float: none;
 }
-#kirim-pesan input{
+#kirim-pesan input {
   width: 200px;
   height: 50px;
   font-size: 20px;
+}
+
+#pesan{
+  background: chartreuse;
+  width: 800px;
+  float: right;
+  height: 100px;
+  margin-bottom: 100px;
 }
 aside {
   padding: 30px;
